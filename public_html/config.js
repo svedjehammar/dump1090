@@ -4,6 +4,7 @@
 // Load this file before script.js file at gmap.html.
 //
 // --------------------------------------------------------
+// 2018-01-30 Added OpenFlightMap tiles for sweden robert@svedjehammar.se
 
 // -- Title Settings --------------------------------------
 // Show number of aircraft and/or messages per second in the page title
@@ -17,7 +18,7 @@ MessageRateInTitle = true;
 // and in the detailed plane info. If ShowOtherUnits is true,
 // then the other unit will also be shown in the detailed plane
 // info.
-Metric = true;
+Metric = false;
 ShowOtherUnits = true;
 
 // -- Map settings ----------------------------------------
@@ -26,8 +27,8 @@ ShowOtherUnits = true;
 // degrees.
 
 // Default center of the map.
-DefaultCenterLat = 52.085624;
-DefaultCenterLon = 5.0890591;
+DefaultCenterLat = 59.2777;
+DefaultCenterLon = 5.6892;
 // The google maps zoom level, 0 - 16, lower is further out
 DefaultZoomLvl   = 7;
 
@@ -35,15 +36,18 @@ DefaultZoomLvl   = 7;
 // that location is used and these settings are ignored.
 
 SiteShow    = true;            // true to show a center marker
-SiteLat     = 52.085624;       // position of the marker
-SiteLon     = 5.0890591;
+SiteLat     = 59.2777;       // position of the marker
+SiteLon     = 17.6892;
 SiteName    = "My Radar Site"; // tooltip of the marker
 
 // User Map (KML File)
 // Enables KML overlay on map, UserMap must have a value below when "true"
 UserMapShow = true;            //true to show KML
 // KML to show, for example your rangeview.kml: 
-UserMap     = "https://github.com/tedsluis/dump1090/raw/master/exampledata/radar.kml";  // your KML URL (publicly available domain)
+//UserMap     = "https://github.com/tedsluis/dump1090/raw/master/exampledata/radar.kml";  // your KML URL (publicly available domain)
+
+UserMap     = "http://svedjehammar.se:80/dump1090/rangeview.kml";  // your KML URL (publicly available domain)
+
 
 // User heatmap (csv File)
 // Enables Heatmap on map
@@ -57,13 +61,16 @@ HeatmapFileSelector = true;    //true to show file selector in heatmap panel.
 // URL can be constructed by simple substition of x/y tile number and zoom level
 var ExtraMapTypes = {
         'OpenStreetMap'    : 'http://tile.openstreetmap.org/{z}/{x}/{y}.png',
+
         // NB: the following generally only cover the US
         'Sectional Charts' : 'http://wms.chartbundle.com/tms/1.0.0/sec/{z}/{x}/{y}.png?origin=nw',
         'Terminal Charts'  : 'http://wms.chartbundle.com/tms/1.0.0/tac/{z}/{x}/{y}.png?origin=nw',
         'World Charts'     : 'http://wms.chartbundle.com/tms/1.0.0/wac/{z}/{x}/{y}.png?origin=nw',
         'IFR Low Charts'   : 'http://wms.chartbundle.com/tms/1.0.0/enrl/{z}/{x}/{y}.png?origin=nw',
         'IFR Area Charts'  : 'http://wms.chartbundle.com/tms/1.0.0/enra/{z}/{x}/{y}.png?origin=nw',
-        'IFR High Charts'  : 'http://wms.chartbundle.com/tms/1.0.0/enrh/{z}/{x}/{y}.png?origin=nw'
+        'IFR High Charts'  : 'http://wms.chartbundle.com/tms/1.0.0/enrh/{z}/{x}/{y}.png?origin=nw',
+	//Sweden downloaded from https://openflightmaps.org/live/es-sweden/ non clipped tiles 
+	'Sweden Merged'    : 'http://localhost/dump1090/OFM/ES/merged/256/latest/{z}/{x}/{y}.png'
 };
 
 
