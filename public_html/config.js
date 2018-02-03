@@ -70,7 +70,7 @@ var ExtraMapTypes = {
         'IFR Area Charts'  : 'http://wms.chartbundle.com/tms/1.0.0/enra/{z}/{x}/{y}.png?origin=nw',
         'IFR High Charts'  : 'http://wms.chartbundle.com/tms/1.0.0/enrh/{z}/{x}/{y}.png?origin=nw',
 	//Sweden downloaded from https://openflightmaps.org/live/es-sweden/ non clipped tiles 
-	'Sweden Merged'    : 'http://localhost/dump1090/OFM/ES/merged/256/latest/{z}/{x}/{y}.png'
+	'Sweden Merged'    : 'http://svedjehammar.se/dump1090/OFM/ES/merged/256/latest/{z}/{x}/{y}.png'
 };
 
 
