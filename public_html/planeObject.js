@@ -23,7 +23,7 @@ function PlaneObject(icao) {
 
         // Track history as a series of line segments
         this.track_linesegs = [];
-        this.history_size = 0;
+        this.history_size  = 0;
 
 	// When was this last updated (receiver timestamp)
         this.last_message_time = null;
@@ -397,9 +397,12 @@ PlaneObject.prototype.updateMarker = function(moved) {
 
 // Update our planes tail line,
 PlaneObject.prototype.updateLines = function() {
+        if ( !TrkAll)
+        {
         if (!this.selected)
                 return;
-        
+        };
+
         for (var i = 0; i < this.track_linesegs.length; ++i) {
                 var seg = this.track_linesegs[i];
                 if (seg.line === null) {
@@ -438,6 +441,8 @@ PlaneObject.prototype.updateLines = function() {
 };
 
 PlaneObject.prototype.destroy = function() {
+if ( !TrkAll){
         this.clearLines();
+};
         this.clearMarker();
 };

@@ -2,6 +2,7 @@
 "use strict";
 
 // Define our global variables
+var TrkAll        = false; // Show all Tracks robert@svedjehammar.se
 var GoogleMap     = null;
 var Planes        = {};
 var PlanesOrdered = [];
@@ -483,7 +484,7 @@ function initialize_map() {
 		mapTypeControlOptions: {
 			mapTypeIds: mapTypeIds,
 			position: google.maps.ControlPosition.TOP_LEFT,
-			style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
+			style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR
 		}
 	};
 
@@ -729,8 +730,16 @@ function toggleHeatmap() {
     HeatmapShow = !HeatmapShow;
     InitHeatmap();
     loadHeatmap(csv);
-}
+};
 
+// Show all Tracks. to reset refresh browser F5
+function toggleTrkAll() {
+if  ( TrkAll )
+TrkAll = false;
+else
+TrkAll = true;
+    };
+    
 // This turns on or off the KML range map
 function toggleRange() {
     UserMapShow = !UserMapShow;
